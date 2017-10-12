@@ -274,8 +274,8 @@ ClientHello                 -------->
   +cookie
 
                             <--------             ServerHello
-                                          EncryptedExtensions
                                           (connection_id=100)
+                                          EncryptedExtensions
                                                   Certificate
                                             CertificateVerify
                                                      Finished
