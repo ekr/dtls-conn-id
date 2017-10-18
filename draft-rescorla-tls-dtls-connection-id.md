@@ -301,7 +301,7 @@ an identifier that remains persistent during the lifetime of a DTLS connection.
 Every identifier introduces the risk of linkability, as explained in {{RFC6973}}.
 
 An on-path adversary, who is able to observe the DTLS 1.2 protocol exchanges between the
-DTLS client and the DTLS server, is able to link the initial handshake to all
+DTLS client and the DTLS server, is able to link the observed payloads to all
 subsequent payloads carrying the same connection id pair (for bi-directional
 communication). In DTLS 1.3, it is possible to provide new encrypted connection
 IDs, though of course those IDs are immediately used on the wire.
