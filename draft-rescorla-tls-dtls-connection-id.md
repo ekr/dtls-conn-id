@@ -274,7 +274,7 @@ ClientHello                 -------->
   +cookie
 
                             <--------             ServerHello
-                                          (connection_id=100)                            
+                                          (connection_id=100)
                                           EncryptedExtensions
                                                       (cid=5)
                                                   Certificate
@@ -347,6 +347,12 @@ The connection id replaces the previously used 5-tuple and, as such, introduces
 an identifier that remains persistent during the lifetime of a DTLS connection.
 Every identifier introduces the risk of linkability, as explained in {{RFC6973}}.
 
+In addition, endpoints can use the connection ID to attach arbitrary metadata
+to each record they receive. This may be used as a mechanism to communicate
+per-connection to on-path observers. There is no straightforward way to
+address this with connection IDs that contain arbitrary values; implementations
+concerned about this SHOULD refuse to use connection ids.
+
 An on-path adversary, who is able to observe the DTLS 1.2 protocol exchanges between the
 DTLS client and the DTLS server, is able to link the observed payloads to all
 subsequent payloads carrying the same connection id pair (for bi-directional
@@ -355,7 +361,7 @@ IDs, though of course those IDs are immediately used on the wire.
 Without multi-homing and mobility the use of the connection id is not different to the
 use of the 5-tuple.
 
-With multi-homing an adversary is able to correlate the communication
+With multi-homing, an adversary is able to correlate the communication
 interaction over the two paths, which adds further privacy concerns. In order
 to prevent this, implementations SHOULD attempt to use fresh connection IDs
 whenever they change local addresses or ports (though this is not always
@@ -364,6 +370,10 @@ to ask for new IDs in order to ensure that you have a pool of suitable IDs.
 
 This document does not change the security properties of DTLS 1.2 {{RFC6347}} and DTLS 1.3 {{I-D.ietf-tls-dtls13}}.
 It merely provides a more robust mechanism for associating an incoming packet with a stored security context.
+
+[[OPEN ISSUE: Sequence numbers leak connection IDs. We need to update the
+document to address this. One possibility would be the technique documented
+in https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#packet-number-gap.]]
 
 #  IANA Considerations
 
