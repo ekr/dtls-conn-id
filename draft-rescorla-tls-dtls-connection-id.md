@@ -144,8 +144,8 @@ receive as a connection identifier in encrypted records, it is possible
 for an endpoint to use a globally constant length for such connection
 identifiers.  This can in turn ease parsing and connection lookup,
 for example by having the length in question be a compile-time constant.
-(Note that such implementations must still be able to send other length
-connection identifiers to other parties!)
+Note that such implementations must still be able to send other length
+connection identifiers to other parties.
 
 In DTLS 1.2, connection ids are exchanged at the beginning of the DTLS
 session only. There is no dedicated "connection id update" message
