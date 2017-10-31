@@ -36,6 +36,11 @@ author:
        organization: ARM Limited
        role: editor
        email: hannes.tschofenig@arm.com
+ -
+       ins: T. Fossati
+       name: Thomas Fossati
+       organization: Nokia
+       email: thomas.fossati@nokia.com
 
 normative:
   RFC2119:
@@ -409,12 +414,6 @@ Archives of the list can be found at:
 Many people have contributed to this specification since the functionality has
 been highly desired by the IoT community. We would like to thank the following
 individuals for their contributions in earlier specifications:
-
-~~~
-* Thomas Fossati
-  Nokia
-  thomas.fossati@nokia.com
-~~~
 
 ~~~
 * Nikos Mavrogiannopoulos
